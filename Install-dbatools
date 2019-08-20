@@ -1,0 +1,35 @@
+--******* Install dbatools ******--
+Minimum requirements:
+a. Windows 7 with Powershell 3
+
+Online installation:
+-------------------
+Method-1: install dbatools from the Powershell Gallery
+- The PowerShell Gallery and the command "Install-Module" are natively available in Windows 10 and Windows Server 2016. It requires Run as Administrator, and installs dbatools globally
+Command:
+	Install-Module dbatools
+
+- To install dbatoosl yourself.
+Command:
+	Install-Module dbatools -Scope CurrentUser
+
+Method-2: For legacy (Win7, Win8, etc) systems: scripted installer directly from GitHub
+Command:
+	Invoke-Expression (Invoke-WebRequest -UseBasicParsing https://dbatools.io/in)
+
+Offline installation:
+--------------------
+Method-1:
+If system is older and don't have PowerShellGet or haven't upgraded to PowerShell 5.1, then download the directly from the Gallery’s API.
+
+Note: this will download a file ending with ".nupkg" file. Rename this to ".zip" then extract it to a folder and named it as "dbatools".
+
+Copy "dbatools" directory to PowerShell module folder. You can find PowerShell module path by using below command.
+Command: for module folder.
+	$env:PSModulePath -Split ';';
+
+We need to unblock files to make sure import automatically when open new PowerShell session. Here is the command to unblock dbatools.
+Command:
+	Get-ChildItem -Recurse C:\path\to\module | Unblock-File
+
+
