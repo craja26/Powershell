@@ -1,4 +1,4 @@
-$servername = 'Localhost' #Enter proper server name
+$servername = 'Localhost' #Enter server name
 $options = New-DbaScriptingOption
 $options.DriAllConstraints =$true
 $options.NonClusteredIndexes  =$true
