@@ -16,6 +16,7 @@ if($destination[-1] -ne "\") {$destination += "\"}  #adding backslash if not exi
 
 #$file_list = Get-ChildItem -Path $source  -Recurse -Directory -Force -ErrorAction SilentlyContinue | ForEach-Object{  Get-ChildItem -Path $_.FullName|Where-Object{$_.Mode -eq '-a----'}|Select-Object Name, mode, directory, FullName}
 Try{
+	<#  this code is not required
 	#checking source and destination directories
 	If(!(Test-Path -Path $source )){
 		Write-Output "$([DateTime]::Now) : Please choose valid source($source) directory."| Out-File $output_file -Append
@@ -26,6 +27,7 @@ Try{
 		#exit
 		Break
 	}
+	#>
 	$file_list = Get-ChildItem -Path $source  -Recurse -Directory -Force -ErrorAction Stop | ForEach-Object{  Get-ChildItem -Path $_.FullName|Where-Object{$_.Mode -eq '-a----'}|Select-Object Name, mode, directory, FullName}
 	
 	#verifying source directory whether have files or not.
