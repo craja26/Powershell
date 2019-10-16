@@ -30,13 +30,13 @@ Try{
 	
 	#verifying source directory whether have files or not.
 	if($file_list.Count -eq 0){
-		Write-Output "No files are available to copy. Please check source directory." | Out-File $output_file -Append -encoding utf8
+		Write-Output "No files are available to copy. Please check source directory." | Out-File $output_file -Append 
 		Break
 	}
 
 	$file_list|foreach{$copy_file = $_.FullName.replace($source, $destination)
 		If(Test-Path -Path $copy_file){
-			Write-Output "File $_ is exists in the destination directory." | Out-File $output_file -Append -encoding utf8
+			Write-Output "File $_ is exists in the destination directory." | Out-File $output_file -Append 
 		}
 		Else{
 			$dest_folder = $copy_file.replace($_.name,'')
@@ -46,14 +46,14 @@ Try{
 			}
 			"Copy process started at " + "$([DateTime]::Now)" | out-file $output_file -Append
 			# copy files, storing output in a temp log file. Data in this file is flushed once another file is copying.
-			Copy-Item -path $_.FullName -Destination ($dest_folder) -verbose *> $temp_output -encoding utf8
+			Copy-Item -path $_.FullName -Destination ($dest_folder) -verbose *> $temp_output 
 			
 			#appending temp log file information into output file.
 			Get-Content $temp_output | Out-File $output_file -Append
-			"Copy process ended at " + "$([DateTime]::Now) `n" | out-file $output_file -Append		 -encoding utf8
+			"Copy process ended at " + "$([DateTime]::Now) `n" | out-file $output_file -Append		 
 		}	
 	}
 }catch [System.Exception]{
-	"An error occured while trying to process files. Please check the manual!" | Out-File $output_file -Append -encoding utf8
+	"An error occured while trying to process files. Please check the manual!" | Out-File $output_file -Append 
 	$_ | Out-File $output_file -Append
 }
