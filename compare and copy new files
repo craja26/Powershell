@@ -1,3 +1,10 @@
+Task:
+Copy newly genereated backup files to target server without override existing backup files in the destination directory.
+
+#Below is the powershell script to copy backups to target server. Here we need to specify source and destination folders, output log file and temporary output log file.
+#if you want to schedule this task, save below code as .ps1 file then create a SQL Server agent job.
+
+#Powershell script: 
 #Declare output log file
 $output_file = "C:\temp\Logs\copy_files_$(get-date -f yyyy-MM-dd-HH-mm)_log.log"
 
