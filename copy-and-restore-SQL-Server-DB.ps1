@@ -48,6 +48,6 @@ $Server.KillDatabase($DatabaseName) *> $out_restore
 # Restore database IS_GAME:
 $RelocateData_DB_Name = New-Object Microsoft.SqlServer.Management.Smo.RelocateFile("DB_NAME_Data", "D:\MSSQL\MSSQL14.MSSQLSERVER\MSSQL\DATA\DB_NAME_Data.mdf")
 $RelocateLog_DB_Name = New-Object Microsoft.SqlServer.Management.Smo.RelocateFile("DB_NAME_Log", "D:\MSSQL\MSSQL14.MSSQLSERVER\MSSQL\DATA\DB_NAME_Log.ldf")
-Restore-SqlDatabase -ServerInstance "IRON-STG-SQLDB1" -Database "IS_GAME" -BackupFile "$BackupDir_IS_GAME\$LatestFile_DB_Name" -RelocateFile @($RelocateData_DB_Name,$RelocateLog_DB_Name) -Verbose *> $out_restore 
+Restore-SqlDatabase -ServerInstance $SQLInstanceName -Database $DatabaseName -BackupFile "$BackupDir_IS_GAME\$LatestFile_DB_Name" -RelocateFile @($RelocateData_DB_Name,$RelocateLog_DB_Name) -Verbose *> $out_restore 
 
 
