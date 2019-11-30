@@ -2,7 +2,7 @@
 # variable $error_str will capture connection error information. 
 $error_str = ''
 $secpasswd = ConvertTo-SecureString "xxxxxxxxxxx" -AsPlainText -Force
-$mycreds = New-Object System.Management.Automation.PSCredential ("backup_reader", $secpasswd)
+$mycreds = New-Object System.Management.Automation.PSCredential ("<SQL login>", $secpasswd)
 
 $csv_file = "c:\temp\backup_report_$((get-date).ToString("_yyyyMMdd_HHmmss")).csv"
 
