@@ -17,5 +17,5 @@ $SqlAdapter.Fill($DataSet)
 
 $DataSet.Tables[0] 
 
-Note: If want to connect using windows authentication need to specify "Integrated Security = True;" in the connection string.
-Ex: $SqlConnection.ConnectionString = "Server = $SQLServer; Database = $SQLDBName; Integrated Security = True;"
+#Note: If want to connect using windows authentication need to specify "Integrated Security = True;" in the connection string.
+#Ex: $SqlConnection.ConnectionString = "Server = $SQLServer; Database = $SQLDBName; Integrated Security = True;"
