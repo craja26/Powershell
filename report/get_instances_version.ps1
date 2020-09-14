@@ -1,3 +1,4 @@
+#I want to get version builds report for selected servers
 #create powershell file and execute below code.
 #.\PatchReport.ps1 -Email "craja26@gmail.com" -srv_list @("server1", "server2","server3")
 param($srv_list, $email)
